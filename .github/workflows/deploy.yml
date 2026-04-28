@@ -6,12 +6,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  buildWorkflow:
     uses: ./.github/workflows/_build.yml
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: buildWorkflow
     steps:
       - uses: actions/download-artifact@v4
         with:
